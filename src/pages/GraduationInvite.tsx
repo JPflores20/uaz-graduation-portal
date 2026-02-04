@@ -7,6 +7,7 @@ import GiftSection from "@/components/graduation/GiftSection";
 import PhotoGallery from "@/components/graduation/PhotoGallery";
 import MusicPlayer from "@/components/graduation/MusicPlayer";
 import WhatsAppRSVP from "@/components/graduation/WhatsAppRSVP";
+import Mentors from "../components/graduation/Mentors";
 
 const GraduationInvite = () => {
   return (
