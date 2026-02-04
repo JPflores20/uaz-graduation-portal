@@ -9,16 +9,16 @@ const locations = [
     venue: "Catedral Basílica de Zacatecas",
     address: "Centro Histórico, Zacatecas, Zac.",
     time: "10:00 AM",
-    mapsUrl: "https://maps.google.com/?q=Catedral+Basílica+de+Zacatecas",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Catedral+Basilica+de+Zacatecas",
   },
   {
     id: "reception",
     icon: PartyPopper,
-    title: "Recepción",
-    venue: "Salón de Eventos UAZ",
-    address: "Campus UAZ Siglo XXI, Zacatecas, Zac.",
+    title: "Recepción", // Fiesta
+    venue: "Salón La Cebada", // Nombre actualizado
+    address: "C. Aguadores 223, Centro, 98000 Zacatecas, Zac.", // Dirección real encontrada
     time: "2:00 PM",
-    mapsUrl: "https://maps.google.com/?q=UAZ+Campus+Siglo+XXI",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Salon+La+Cebada+Zacatecas",
   },
 ];
 
@@ -74,12 +74,14 @@ const LocationCards = () => {
               {/* Maps Button */}
               <div className="flex justify-center">
                 <Button
+                  asChild
                   variant="outline"
-                  className="border-gold/50 text-gold hover:bg-gold hover:text-primary-foreground transition-all"
-                  onClick={() => window.open(location.mapsUrl, "_blank")}
+                  className="border-gold/50 text-gold hover:bg-gold hover:text-primary-foreground transition-all cursor-pointer"
                 >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Ver en Google Maps
+                  <a href={location.mapsUrl} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Ver en Google Maps
+                  </a>
                 </Button>
               </div>
             </div>
