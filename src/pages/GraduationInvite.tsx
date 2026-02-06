@@ -7,7 +7,9 @@ import GiftSection from "@/components/graduation/GiftSection";
 import PhotoGallery from "@/components/graduation/PhotoGallery";
 import MusicPlayer from "@/components/graduation/MusicPlayer";
 import WhatsAppRSVP from "@/components/graduation/WhatsAppRSVP";
-import Mentors from "../components/graduation/Mentors";
+// Importamos los nuevos componentes
+import Mentors from "@/components/graduation/Mentors";
+import Accommodation from "@/components/graduation/Accommodation";
 
 const GraduationInvite = () => {
   return (
@@ -20,12 +22,18 @@ const GraduationInvite = () => {
       
       {/* Location Cards */}
       <LocationCards />
+
+      {/* AGREGADO: Sugerencias de Hospedaje (Ideal después de la ubicación) */}
+      <Accommodation />
       
       {/* Event Itinerary */}
       <Itinerary />
       
       {/* Dress Code */}
       <DressCode />
+
+      {/* AGREGADO: Mentores (Buen lugar antes de los regalos) */}
+      <Mentors />
       
       {/* Gift Registry */}
       <GiftSection />

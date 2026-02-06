@@ -10,7 +10,7 @@ const hotels = [
     address: "Av. Hidalgo 703, Centro Histórico",
     phone: "+52 492 925 6500",
     url: "https://www.emporiohotels.com/zacatecas",
-    image: "https://images.trvl-media.com/lodging/1000000/10000/3300/3204/32578500/18818817.jpg?impolicy=resizecrop&rw=1200&ra=fit",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200",
   },
   {
     name: "Hotel Santa Rita",
@@ -20,7 +20,7 @@ const hotels = [
     address: "Av. Hidalgo 507, Centro Histórico",
     phone: "+52 492 925 4700",
     url: "https://www.hotelsantarita.com/",
-    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/58/63/07/facade.jpg?w=1200&h=-1&s=1",
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1200",
   },
   {
     name: "Hotel Reyna Soledad",
@@ -30,22 +30,25 @@ const hotels = [
     address: "Tacuba 163, Centro Histórico",
     phone: "+52 492 922 3156",
     url: "https://www.hotelreynasoledad.com/",
-    image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/49842517.jpg?k=5034637134267605700810790807755333734007357000835560666010078278&o=&hp=1",
+    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=1200",
   },
 ];
 
 const Accommodation = () => {
   return (
-    <section className="py-20 px-4 bg-white/5">
+    // CAMBIO: Fondo gris claro en lugar de transparente
+    <section className="py-20 px-4 bg-gray-50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-up">
           <div className="inline-flex items-center justify-center p-3 rounded-full bg-[#D4AF37]/10 mb-4">
             <Hotel className="w-6 h-6 text-[#D4AF37]" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
+          {/* CAMBIO: Texto oscuro (gray-900) */}
+          <h2 className="text-3xl md:text-4xl font-display text-gray-900 mb-4">
             Sugerencias de Hospedaje
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          {/* CAMBIO: Texto gris medio (gray-600) */}
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Para tu comodidad, hemos seleccionado estas opciones cercanas a los eventos.
           </p>
         </div>
@@ -54,37 +57,44 @@ const Accommodation = () => {
           {hotels.map((hotel, index) => (
             <div
               key={hotel.name}
-              className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-[#D4AF37]/50 transition-all duration-300 hover:transform hover:-translate-y-2"
+              // CAMBIO: Fondo blanco, borde gris claro y sombra
+              className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#D4AF37]/50 transition-all duration-300 hover:transform hover:-translate-y-2 shadow-sm hover:shadow-md"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="h-48 overflow-hidden relative">
-                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 z-10 shadow-sm">
                   <Star className="w-3 h-3 text-[#D4AF37] fill-[#D4AF37]" />
-                  <span className="text-xs text-white font-medium">{hotel.rating} Estrellas</span>
+                  <span className="text-xs text-gray-800 font-medium">{hotel.rating} Estrellas</span>
                 </div>
                 <img
                   src={hotel.image}
                   alt={hotel.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200";
+                  }}
                 />
               </div>
 
               <div className="p-6 space-y-4">
                 <div className="flex justify-between items-start">
-                  <h3 className="text-xl font-bold text-white">{hotel.name}</h3>
+                  {/* CAMBIO: Texto del título oscuro */}
+                  <h3 className="text-xl font-bold text-gray-900">{hotel.name}</h3>
                   <span className="text-[#D4AF37] font-medium">{hotel.price}</span>
                 </div>
                 
-                <p className="text-sm text-white/60 line-clamp-2">
+                {/* CAMBIO: Texto descriptivo gris */}
+                <p className="text-sm text-gray-600 line-clamp-2">
                   {hotel.description}
                 </p>
 
                 <div className="space-y-2 pt-2">
-                  <div className="flex items-start gap-2 text-sm text-white/50">
+                  <div className="flex items-start gap-2 text-sm text-gray-500">
                     <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                     <span>{hotel.address}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-white/50">
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Phone className="w-4 h-4 text-[#D4AF37]" />
                     <span>{hotel.phone}</span>
                   </div>
@@ -92,7 +102,8 @@ const Accommodation = () => {
 
                 <Button 
                   asChild
-                  className="w-full bg-white/10 hover:bg-[#D4AF37] text-white hover:text-[#1E3D59] border-0 mt-4 transition-all duration-300"
+                  // CAMBIO: Botón con estilo outline/fantasma oscuro para que resalte
+                  className="w-full bg-gray-100 hover:bg-[#D4AF37] text-gray-900 hover:text-white border-0 mt-4 transition-all duration-300"
                 >
                   <a href={hotel.url} target="_blank" rel="noopener noreferrer">
                     Ver Hotel
