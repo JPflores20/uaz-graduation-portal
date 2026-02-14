@@ -5,7 +5,7 @@ const DressCode = () => {
     <section className="py-16 md:py-24 px-4 bg-secondary/30">
       <div className="max-w-3xl mx-auto text-center">
         <div className="mb-8">
-          <h2 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-3">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-gold mb-6">
             Código de Vestimenta
           </h2>
           <div className="flex items-center justify-center gap-3 mb-2">

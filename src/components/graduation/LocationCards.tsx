@@ -24,10 +24,13 @@ const locations = [
 
 const LocationCards = () => {
   return (
-    <section className="py-16 md:py-24 px-4 gradient-navy">
+    <section className="relative py-16 md:py-24 px-4 gradient-navy">
+      {/* Gradient Fade from previous section (White to Transparent) */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
+      
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-3">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-gold mb-6">
             Ubicaciones
           </h2>
           <p className="text-white/70 text-sm md:text-base">
@@ -39,7 +42,7 @@ const LocationCards = () => {
           {locations.map((location, index) => (
             <div
               key={location.id}
-              className="group glass-card rounded-2xl p-6 md:p-8 border border-white/10 hover:border-gold/30 transition-all duration-300 hover:shadow-2xl hover:shadow-gold/5"
+              className="group glass-card rounded-2xl p-6 md:p-8 border border-white/10 hover:border-gold/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10 hover:-translate-y-2 hover:scale-[1.02]"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Icon */}

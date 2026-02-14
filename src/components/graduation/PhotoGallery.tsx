@@ -57,7 +57,7 @@ const PhotoGallery = () => {
     <section className="py-16 md:py-24 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-3">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-gold mb-6">
             Galería
           </h2>
           <p className="text-muted-foreground text-sm md:text-base">

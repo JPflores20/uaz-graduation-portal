@@ -46,7 +46,7 @@ const Countdown = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-4 bg-secondary/50">
+    <section className="py-16 md:py-24 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-2">
           Faltan
@@ -59,13 +59,16 @@ const Countdown = () => {
           {timeUnits.map((unit, index) => (
             <div
               key={unit.label}
-              className="glass-card rounded-2xl p-4 md:p-6 border border-primary/10"
+              className="relative overflow-hidden rounded-2xl p-4 md:p-6 bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-white shadow-xl border border-primary/20 group hover:border-gold/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-gold/20"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="text-4xl md:text-6xl font-display font-bold text-primary mb-2 tabular-nums">
+              {/* Gold Shine Effect */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-gold/0 via-gold/10 to-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              
+              <div className="relative text-4xl md:text-6xl font-display font-bold text-white mb-2 tabular-nums drop-shadow-md group-hover:scale-110 group-hover:text-gold transition-all duration-500">
                 {String(unit.value).padStart(2, "0")}
               </div>
-              <div className="text-xs md:text-sm uppercase tracking-wider text-muted-foreground">
+              <div className="relative text-xs md:text-sm uppercase tracking-wider text-gold/80 font-medium">
                 {unit.label}
               </div>
             </div>

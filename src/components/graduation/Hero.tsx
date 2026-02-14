@@ -1,5 +1,6 @@
 import { GraduationCap, MapPin, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Sparkles } from "@/components/ui/sparkles";
 
 const Hero = () => {
   return (
@@ -14,44 +15,48 @@ const Hero = () => {
           backgroundPosition: "center",
         }}
       >
-        {/* Overlay (Capa oscura) con los colores de la UAZ para dar legibilidad */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1E3D59]/80 via-[#1E3D59]/60 to-[#1E3D59]/90" />
+        {/* Overlay (Capa oscura y granulada) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/70 to-primary/95" />
+        <div className="absolute inset-0 bg-noise opacity-[0.05]" />
       </div>
 
+      {/* Partículas Doradas */}
+      <Sparkles />
+
       <div className="container relative z-10 px-4 text-center text-white animate-fade-up">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 hover:bg-white/20 transition-colors">
-          <GraduationCap className="w-5 h-5 text-[#D4AF37]" />
-          <span className="text-sm font-medium tracking-wide uppercase">Clase 2022 - 2026</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-8 hover:bg-white/10 transition-colors shadow-2xl">
+          <GraduationCap className="w-5 h-5 text-gold" />
+          <span className="text-sm font-medium tracking-wide uppercase text-gray-200">Clase 2022 - 2026</span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight font-display">
           Ingeniería de <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#F2D06B]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F2D06B] to-gold animate-shimmer bg-[length:200%_100%]">
             Software
           </span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-gray-200 mb-8 font-light max-w-2xl mx-auto">
+        <p className="text-xl md:text-2xl text-gray-200 mb-8 font-light max-w-2xl mx-auto font-display italic">
           Universidad Autónoma de Zacatecas
           <br />
-          <span className="text-sm opacity-80 mt-2 block">"Francisco García Salinas"</span>
+          <span className="text-sm opacity-80 mt-2 block font-sans not-italic">"Francisco García Salinas"</span>
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-          <div className="flex items-center gap-2 text-gray-300 bg-black/20 px-4 py-2 rounded-lg backdrop-blur-sm">
-            <CalendarDays className="w-5 h-5 text-[#D4AF37]" />
-            <span>15 de Julio, 2026</span>
+          <div className="flex items-center gap-2 text-gray-300 bg-white/5 px-5 py-3 rounded-xl backdrop-blur-sm border border-white/5 hover:border-gold/20 transition-all cursor-default">
+            <CalendarDays className="w-5 h-5 text-gold" />
+            <span className="font-medium">15 de Julio, 2026</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-300 bg-black/20 px-4 py-2 rounded-lg backdrop-blur-sm">
-            <MapPin className="w-5 h-5 text-[#D4AF37]" />
-            <span>Zacatecas, Zac.</span>
+          <div className="flex items-center gap-2 text-gray-300 bg-white/5 px-5 py-3 rounded-xl backdrop-blur-sm border border-white/5 hover:border-gold/20 transition-all cursor-default">
+            <MapPin className="w-5 h-5 text-gold" />
+            <span className="font-medium">Zacatecas, Zac.</span>
           </div>
         </div>
 
         <div className="mt-12">
            <Button 
             onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-[#D4AF37] hover:bg-[#B5952F] text-[#1E3D59] font-bold text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-[#D4AF37]/20 hover:scale-105 transition-all duration-300"
+            className="bg-gold hover:bg-[#B5952F] text-primary font-bold text-lg px-8 py-6 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-white/20"
           >
             Confirmar Asistencia
           </Button>
@@ -59,7 +64,7 @@ const Hero = () => {
       </div>
 
       {/* Elemento decorativo inferior */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0A1929] to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
     </section>
   );
 };

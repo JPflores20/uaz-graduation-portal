@@ -15,7 +15,7 @@ const mentors = [
 
 const Mentors = () => {
   return (
-    <section className="py-16 bg-white/5">
+    <section className="pt-32 pb-16 bg-white/5">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-display text-[#D4AF37] mb-12 uppercase tracking-widest">
           Agradecimiento Especial

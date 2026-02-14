@@ -1,51 +1,99 @@
+import { Suspense, lazy } from "react";
 import Hero from "@/components/graduation/Hero";
 import Countdown from "@/components/graduation/Countdown";
 import LocationCards from "@/components/graduation/LocationCards";
 import Itinerary from "@/components/graduation/Itinerary";
 import DressCode from "@/components/graduation/DressCode";
-import GiftSection from "@/components/graduation/GiftSection";
-import PhotoGallery from "@/components/graduation/PhotoGallery";
-import MusicPlayer from "@/components/graduation/MusicPlayer";
 import WhatsAppRSVP from "@/components/graduation/WhatsAppRSVP";
 // Importamos los nuevos componentes
 import Mentors from "@/components/graduation/Mentors";
 import Accommodation from "@/components/graduation/Accommodation";
 
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionDivider } from "@/components/ui/SectionDivider";
+
+// Lazy load heavy components
+const GiftSection = lazy(() => import("@/components/graduation/GiftSection"));
+const PhotoGallery = lazy(() => import("@/components/graduation/PhotoGallery"));
+const MusicPlayer = lazy(() => import("@/components/graduation/MusicPlayer"));
+
+const LoadingFallback = () => (
+  <div className="w-full h-40 flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gold"></div>
+  </div>
+);
+
 const GraduationInvite = () => {
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="min-h-screen bg-background font-sans relative">
       {/* Hero Section */}
-      <Hero />
+      <div className="relative">
+        <Hero />
+        <SectionDivider position="bottom" variant="wave" fill="fill-background" />
+      </div>
       
       {/* Countdown Timer */}
-      <Countdown />
+      <ScrollReveal>
+        <div className="relative pt-12">
+          <Countdown />
+        </div>
+      </ScrollReveal>
       
-      {/* Location Cards */}
-      <LocationCards />
+      {/* LocationCards (Divider is now internal) */}
+      <ScrollReveal>
+        <LocationCards />
+      </ScrollReveal>
 
       {/* AGREGADO: Sugerencias de Hospedaje (Ideal después de la ubicación) */}
-      <Accommodation />
+      <ScrollReveal>
+        <Accommodation />
+      </ScrollReveal>
       
       {/* Event Itinerary */}
-      <Itinerary />
+      <ScrollReveal>
+        <div className="relative">
+          <SectionDivider position="top" variant="slant" fill="fill-background" />
+          <Itinerary />
+          <SectionDivider position="bottom" variant="wave" fill="fill-background" />
+        </div>
+      </ScrollReveal>
       
       {/* Dress Code */}
-      <DressCode />
+      <ScrollReveal>
+        <DressCode />
+      </ScrollReveal>
 
       {/* AGREGADO: Mentores (Buen lugar antes de los regalos) */}
-      <Mentors />
+      <ScrollReveal>
+        <div className="relative">
+          <SectionDivider position="top" variant="curve" fill="fill-white/5" />
+          <Mentors />
+        </div>
+      </ScrollReveal>
       
       {/* Gift Registry */}
-      <GiftSection />
+      <Suspense fallback={<LoadingFallback />}>
+        <ScrollReveal>
+          <GiftSection />
+        </ScrollReveal>
+      </Suspense>
       
       {/* Photo Gallery */}
-      <PhotoGallery />
+      <Suspense fallback={<LoadingFallback />}>
+        <ScrollReveal>
+          <PhotoGallery />
+        </ScrollReveal>
+      </Suspense>
       
       {/* RSVP Section */}
-      <WhatsAppRSVP />
+      <ScrollReveal>
+        <WhatsAppRSVP />
+      </ScrollReveal>
       
       {/* Music Player - Floating */}
-      <MusicPlayer />
+      <Suspense fallback={null}>
+        <MusicPlayer />
+      </Suspense>
       
       {/* Footer */}
       <footer className="py-8 px-4 text-center gradient-navy">

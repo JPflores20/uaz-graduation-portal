@@ -8,7 +8,7 @@ const GiftSection = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 mb-4">
             <Gift className="w-8 h-8 text-gold" />
           </div>
-          <h2 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-3">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-gold mb-6">
             Mesa de Regalos
           </h2>
         </div>

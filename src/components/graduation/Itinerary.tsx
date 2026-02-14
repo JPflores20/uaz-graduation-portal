@@ -51,7 +51,7 @@ const Itinerary = () => {
     <section className="py-16 md:py-24 px-4 bg-background">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-3">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-gold mb-6">
             Itinerario
           </h2>
           <p className="text-muted-foreground text-sm md:text-base">
@@ -107,6 +107,19 @@ const Itinerary = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Add to Calendar Button */}
+        <div className="mt-12 text-center">
+          <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Graduación+Ingeniería+de+Software+UAZ&dates=20260615T150000Z/20260616T050000Z&details=Acompáñanos+a+celebrar+nuestra+graduación.+Consulta+el+itinerario+completo+en+la+invitación.&location=Zacatecas,+Zac."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-secondary/80 hover:bg-secondary text-primary rounded-full transition-all duration-300 border border-primary/20 hover:border-gold/50 group"
+          >
+            <ClipboardCheck className="w-5 h-5 text-gold group-hover:scale-110 transition-transform" />
+            <span className="font-medium">Agregar a Google Calendar</span>
+          </a>
         </div>
       </div>
     </section>
